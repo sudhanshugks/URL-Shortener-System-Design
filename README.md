@@ -68,13 +68,6 @@ def redirect_url(short_code):
 | Avg Shorten Latency | 2113.09 ms |
 | Avg Resolve Latency | 2025.38 ms |
 
-## Learning Outcomes
-
-1. **HTTP Redirection** – Understanding how 301/302 status codes redirect browsers from short URLs to original URLs.
-2. **Database Indexing** – Indexing the `short_code` column enables fast O(log N) lookups at scale.
-3. **Concurrency & Load** – Observing how a server handles concurrent requests and its impact on throughput and latency.
-4. **ID Generation Trade-offs** – Random string generation (collision risk) vs. base-conversion of auto-increment IDs (collision-free).
-
 ## How to Run
 
 ```bash
