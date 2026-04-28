@@ -69,12 +69,12 @@ def redirect_url(short_code):
 | Avg Resolve Latency | 2025.38 ms |
 
 ## How to Run
-
+Run in 1st Terminal:
 ```bash
 pip install -r requirements.txt
 python app.py
 ```
-In a separate terminal:
+Run in separate 2nd Terminal:
 ```bash
 python load_test.py
 ```
