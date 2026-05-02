@@ -32,31 +32,6 @@ graph TD
     I -- No --> K[HTTP 404 Not Found]
 ```
 
-## Code
-
-```python
-@app.route('/shorten', methods=['POST'])
-def shorten_url():
-    data = request.get_json()
-    long_url = data['url']
-    short_code = generate_short_code()
-
-    c.execute('INSERT INTO url_map (short_code, long_url) VALUES (?, ?)', (short_code, long_url))
-    conn.commit()
-
-    return jsonify({'short_url': f"http://localhost:5000/{short_code}"}), 201
-
-@app.route('/<short_code>')
-def redirect_url(short_code):
-    c.execute('SELECT long_url FROM url_map WHERE short_code = ?', (short_code,))
-    result = c.fetchone()
-
-    if result:
-        return redirect(result[0], code=302)
-    else:
-        abort(404)
-```
-
 ## Load Test Results
 
 | Metric | Value |
